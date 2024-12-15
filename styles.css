@@ -1,0 +1,549 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff5e6;
+    font-family: Arial, sans-serif;
+}
+
+.nav-menu {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    padding: 1.5rem;
+    background-color: #FFE4E1;
+    border-radius: 0 0 30px 30px;
+    box-shadow: 0 4px 15px rgba(255, 182, 193, 0.3);
+    z-index: 100;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: white;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-width: 120px;
+    gap: 8px;
+}
+
+.nav-item:hover {
+    transform: translateY(-5px);
+    background-color: #FFF0F5;
+    box-shadow: 0 8px 16px rgba(255, 182, 193, 0.4);
+}
+
+.nav-item:active {
+    transform: scale(0.95);
+}
+
+.nav-item span {
+    color: #FF69B4;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+    font-family: 'Rounded Mplus 1c', sans-serif;
+    position: relative;
+    z-index: 1;
+}
+
+.nav-item:hover span {
+    color: #FF1493;
+}
+
+.nav-item:nth-child(1) {
+    background: linear-gradient(to bottom, #FFB6C1, white);
+    border: 3px solid #FFB6C1;
+}
+
+.nav-item:nth-child(2) {
+    background: linear-gradient(to bottom, #98FB98, white);
+    border: 3px solid #98FB98;
+}
+
+.nav-item:nth-child(3) {
+    background: linear-gradient(to bottom, #87CEEB, white);
+    border: 3px solid #87CEEB;
+}
+
+.nav-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-item:hover::before {
+    opacity: 1;
+    animation: sparkle 1.5s infinite;
+}
+
+.nav-item::after {
+    content: '★';
+    position: absolute;
+    font-size: 1.2rem;
+    color: rgba(255, 182, 193, 0.5);
+    top: 0.5rem;
+    right: 0.8rem;
+    transform: rotate(30deg);
+}
+
+@keyframes sparkle {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Rounded+Mplus+1c:wght@500&display=swap');
+
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.welcome-title {
+    text-align: center;
+    color: #ff6b6b;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.welcome-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto 2rem;
+    padding: 0 1rem;
+}
+
+.welcome-image {
+    flex-shrink: 0;
+    width: 200px;  /* 调整图片容器宽度 */
+    height: 200px; /* 调整图片容器高度 */
+}
+
+.welcome-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scaleX(-1);  /* 水平翻转图片 */
+}
+
+/* 修改欢迎文字样式 */
+.welcome-text {
+    flex: 1;
+    text-align: left;  /* 改为左对齐 */
+    color: #4A4A4A;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin: 0;  /* 移除原有的边距 */
+    font-family: 'Rounded Mplus 1c', sans-serif;
+}
+
+.image-carousel {
+    width: 100%;
+    overflow-x: auto;
+    padding: 1rem 0;
+}
+
+.carousel-container {
+    display: flex;
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    width: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.image-caption {
+    text-align: center;
+    padding: 0.5rem;
+    background-color: #fff;
+    margin: 0;
+    font-weight: bold;
+    color: #666;
+}
+
+/* 美化滚动条 */
+.image-carousel::-webkit-scrollbar {
+    height: 8px;
+}
+
+.image-carousel::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.image-carousel::-webkit-scrollbar-thumb {
+    background: #ffa07a;
+    border-radius: 4px;
+}
+
+.nav-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.nav-item:hover .nav-icon {
+    transform: rotate(10deg);
+}
+
+/* 轮播图容器 */
+.slideshow-container {
+    width: 100%;
+    max-width: 1000px;
+    height: 600px;
+    margin: 2rem auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    background-color: #f8f8f8;
+    padding: 20px;
+}
+
+/* 轮播图包装器 */
+.slideshow-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+    height: 100%;
+}
+
+/* 单个幻灯片 */
+.slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    padding: 10px;
+}
+
+/* 指示点样式 */
+.dots {
+    text-align: center;
+    margin: 1.5rem 0;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}
+
+.dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 8px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #FF69B4;
+}
+
+/* 悬停时暂停动画 */
+.slideshow-container:hover .slideshow-wrapper {
+    animation-play-state: paused;
+}
+
+/* 左右切换按钮样式 */
+.slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    color: #FF69B4;
+    padding: 20px 16px;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: bold;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.slide-btn:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #FF1493;
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+/* 按钮点击效果 */
+.slide-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+/* 网页图标容器样式 */
+.website-icon {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-title {
+    color: #FFF5EE;
+    font-size: 38px;
+    font-weight: bold;
+    font-family: 'Rounded Mplus 1c', sans-serif;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.website-icon img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 2px solid #FFE4E1;
+}
+
+.section-title {
+    text-align: center;
+    color: #ff6b6b;
+    font-size: 2.5rem;
+    margin: 2rem 0;
+    font-family: 'Rounded Mplus 1c', sans-serif;
+}
+
+.kitchen-image {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.kitchen-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.kitchen-link {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.kitchen-link a {
+    color: #FF69B4;
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background-color: #FFF0F5;
+    transition: all 0.3s ease;
+}
+
+.kitchen-link a:hover {
+    background-color: #FF69B4;
+    color: white;
+    box-shadow: 0 4px 8px rgba(255, 105, 180, 0.3);
+}
+
+.food-kitchen h1 {
+    color: #8B4513;  /* 深棕色 */
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-family: 'Rounded Mplus 1c', sans-serif;
+}
+
+.virtual-cooking h1 {
+    color: #8B4513;  /* 深棕色 */
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-family: 'Rounded Mplus 1c', sans-serif;
+}
+
+.cooking-text {
+    text-align: center;
+    color: #4A4A4A;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin: 2rem auto;
+    font-family: 'Rounded Mplus 1c', sans-serif;
+}
+
+.cooking-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.cooking-text {
+    flex: 1;
+    text-align: left;
+    color: #4A4A4A;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin: 0;
+    font-family: 'Rounded Mplus 1c', sans-serif;
+}
+
+.cooking-image {
+    flex-shrink: 0;
+    width: 200px;
+    height: 200px;
+}
+
+.cooking-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.kitchen-text {
+    text-align: center;
+    color: #4A4A4A;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin: 0 auto 2rem;
+    max-width: 800px;
+    font-family: 'Rounded Mplus 1c', sans-serif;
+}
+
+.kitchen-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto 2rem;
+    padding: 0 1rem;
+}
+
+.kitchen-mascot {
+    flex-shrink: 0;
+    width: 200px;
+    height: 200px;
+}
+
+.kitchen-mascot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scaleX(-1);  /* 水平翻转图片 */
+}
+
+/* 修改文字样式以适应新布局 */
+.kitchen-text {
+    flex: 1;
+    text-align: left;
+    margin: 0;
+}
+
+.preview-title {
+    color: #8B4513;  /* 与"虚拟烹饪"相同的深棕色 */
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 2rem 0;
+    font-family: 'Rounded Mplus 1c', sans-serif;
+}
+
+/* 音乐播放器样式 */
+.music-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.music-toggle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255, 105, 180, 0.8);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.music-toggle:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 105, 180, 0.9);
+}
+
+.music-icon {
+    font-size: 24px;
+    color: white;
+}
+
+/* 音乐播放时的动画效果 */
+.music-toggle.playing {
+    animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+ 

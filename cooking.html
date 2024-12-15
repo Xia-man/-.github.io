@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>虚拟烹饪</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="website-icon">
+        <img src="images/图标.jpg" alt="网站图标">
+    </div>
+
+    <nav class="nav-menu">
+        <a href="index.html" class="nav-item">
+            <img src="images/餐厅.png" alt="餐厅" class="nav-icon">
+            <span>食语小镇</span>
+        </a>
+        <a href="cooking.html" class="nav-item">
+            <img src="images/爱看.jpeg" alt="爱看" class="nav-icon">
+            <span>虚拟烹饪</span>
+        </a>
+        <a href="kitchen.html" class="nav-item">
+            <img src="images/厨房图.png" alt="厨房" class="nav-icon">
+            <span>食语厨房</span>
+        </a>
+    </nav>
+
+    <div class="main-content">
+        <section class="module virtual-cooking">
+            <h1>虚拟烹饪</h1>
+            <div class="cooking-game">
+                <div class="cooking-container">
+                    <p class="cooking-text">小朋友你想亲临厨房来烹饪吗，那就快快带上vr眼镜和小雨一起来看看吧</p>
+                    <div class="cooking-image">
+                        <img src="images/小雨二.jpg" alt="小雨">
+                    </div>
+                </div>
+                <h2 class="preview-title">内部预览</h2>
+                <div class="cooking-slideshow">
+                    <div class="slideshow-container">
+                        <button class="slide-btn prev-btn">❮</button>
+                        <button class="slide-btn next-btn">❯</button>
+                        
+                        <div class="slideshow-wrapper">
+                            <div class="slide">
+                                <img src="images/厨房开始.jpg" alt="厨房开始">
+                            </div>
+                            <div class="slide">
+                                <img src="images/制作.jpg" alt="制作">
+                            </div>
+                            <div class="slide">
+                                <img src="images/制成.jpg" alt="制成">
+                            </div>
+                            <div class="slide">
+                                <img src="images/排行榜.jpg" alt="排行榜">
+                            </div>
+                        </div>
+                        <div class="dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        
+        function showSlide(n) {
+            currentSlide = n;
+            
+            if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            }
+            if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            }
+            
+            document.querySelector('.slideshow-wrapper').style.transform = 
+                `translateX(-${currentSlide * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        document.querySelector('.prev-btn').addEventListener('click', () => {
+            prevSlide();
+        });
+
+        document.querySelector('.next-btn').addEventListener('click', () => {
+            nextSlide();
+        });
+
+        setInterval(nextSlide, 5000);
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+    </script>
+</body>
+</html> 
